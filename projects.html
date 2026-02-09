@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Projects — Jaeden Platt portfolio." />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <title>Projects — Jaeden Platt</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="tablet">
+  <div id="sheikah-loader">
+    <div class="loader-core">
+      <div class="sheikah-eye"></div>
+      <p class="boot-text" id="bootText">Initializing...</p>
+    </div>
+  </div>
+  <div class="site" id="site">
+    <header class="site-header" role="banner">
+      <div class="nav-inner">
+        <a class="brand" href="index.html"><div class="brand-badge"></div><span class="brand-name">Jaeden Platt</span></a>
+        <button id="navToggleProjects" class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+
+        <nav id="primaryNavProjects" class="nav" role="navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <button id="themeToggleProjects" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode"><span class="icon">🌙</span></button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="section reveal">
+        <h1 class="section-title">All Projects</h1>
+        <p class="section-sub">This list contains the WDD130 / WDD131 work and a few experiments. Click a card to open the project.</p>
+
+        <div class="grid projects-grid all-projects">
+          <!-- add / duplicate cards for each project -->
+          <article class="project-card">
+            <img src="coolpics/coolpics.jpg" alt="Coolpics" loading="lazy">
+            <div class="card-content">
+              <h3>Coolpics</h3>
+              <p class="muted">Gallery, filters, layout practice.</p>
+              <a class="btn btn-small" href="coolpics/index.html">Open</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="ccform/ccform.jpg" alt="Credit Card Form" loading="lazy">
+            <div class="card-content">
+              <h3>Credit Card Form</h3>
+              <p class="muted">Form validation & accessibility practice.</p>
+              <a class="btn btn-small" href="ccform/index.html">Open</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="recipebook/recipebook.jpg" alt="Recipe Book" loading="lazy">
+            <div class="card-content">
+              <h3>Recipe Book</h3>
+              <p class="muted">Dynamic lists, local storage.</p>
+              <a class="btn btn-small" href="recipebook/index.html">Open</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="blog/blog.jpg" alt="Blog" loading="lazy">
+            <div class="card-content">
+              <h3>Blog</h3>
+              <p class="muted">JavaScript insertion.</p>
+              <a class="btn btn-small" href="blog/index.html">Open</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="charcard/charcard.jpg" alt="Character Card" loading="lazy">
+            <div class="card-content">
+              <h3>Character Card</h3>
+              <p class="muted">Dynamic character profiles.</p>
+              <a class="btn btn-small" href="charcard/index.html">Open</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="mission/mission.jpg" alt="Mission" loading="lazy">
+            <div class="card-content">
+              <h3>Mission</h3>
+              <p class="muted">JavaScript light and dark mode toggle.</p>
+              <a class="btn btn-small" href="mission/index.html">Open</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="personalsite/personalsite.jpg" alt="Personal Site" loading="lazy">
+            <div class="card-content">
+              <h3>Personal Site</h3>
+              <p class="muted">My personal website showcasing skills learned throughout my study.</p>
+              <a class="btn btn-small" href="personalsite/index.html">Open</a>
+            </div>
+          </article>
+
+          <!-- continue adding your project cards -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© Jaeden Platt 2025</p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+  </div>
+</body>
+</html>

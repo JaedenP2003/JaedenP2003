@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Jaeden Platt — Web Developer. Zelda-inspired portfolio." />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <title>Jaeden Platt — Home</title>
+
+  <link rel="preload" href="fonts/HyliaSerifBeta-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="tablet">
+  <div id="sheikah-loader">
+    <div class="loader-core">
+      <div class="sheikah-eye"></div>
+      <p class="boot-text" id="bootText">Initializing...</p>
+    </div>
+  </div>
+  <div class="site" id="site">
+    <header class="site-header" role="banner">
+      <div class="nav-inner">
+        <a class="brand" href="index.html" aria-label="Home — Jaeden Platt">
+          <div class="brand-badge" aria-hidden="true"></div>
+          <span class="brand-name">Jaeden Platt</span>
+        </a>
+
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+
+        <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+          <span class="icon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main" class="main">
+      <!-- HERO -->
+      <section class="hero section--glass reveal">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1 class="alpha">Jaeden Platt</h1>
+            <p class="kicker">Software Engineering Student • Front-end & UI</p>
+            <p class="lead">I craft responsive, accessible web projects with a clean Zelda-inspired aesthetic — practical code, thoughtful UI.</p>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="projects.html">See Projects</a>
+              <a class="btn btn-outline" href="about.html">About Me</a>
+            </div>
+          </div>
+
+          <figure class="hero-figure" aria-hidden="false">
+            <img src="images/JaedenandLiz.jpg" alt="Jaeden Platt portrait" class="portrait">
+            <figcaption class="sr-only">Jaeden Platt Portrait</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- FEATURED -->
+      <section id="featured" class="section reveal">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-sub">A few highlights — click through to open project pages.</p>
+
+        <div class="grid projects-grid">
+          <!-- Example cards — replace image paths and links -->
+          <article class="project-card">
+            <img src="coolpics/coolpics.jpg" alt="Coolpics preview" loading="lazy">
+            <div class="card-content">
+              <h3>Coolpics Gallery</h3>
+              <p class="muted">Responsive image gallery with filtering and a custom lightbox.</p>
+              <a class="btn btn-small" href="coolpics/index.html">Open</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="recipebook/recipebook.jpg" alt="Recipe book preview" loading="lazy">
+            <div class="card-content">
+              <h3>Recipe Book</h3>
+              <p class="muted">Form handling, local storage, and dynamic lists.</p>
+              <a class="btn btn-small" href="recipebook/index.html">Open</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="charcard/charcard.jpg" alt="Character card preview" loading="lazy">
+            <div class="card-content">
+              <h3>Character Card</h3>
+              <p class="muted">Component-style card interface and responsive layout practice.</p>
+              <a class="btn btn-small" href="charcard/index.html">Open</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-foot">
+          <a class="btn btn-ghost" href="projects.html">View All Projects</a>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section reveal">
+        <div class="cta-panel">
+          <h3>Ready to collaborate?</h3>
+          <p class="muted">Open to freelance, collaboration, and interview opportunities.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="contact.html">Contact</a>
+            <a class="btn btn-outline" href="https://github.com/jaedenp2003" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© Jaeden Platt 2025</p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+  </div>
+</body>
+</html>

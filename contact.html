@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Contact — Jaeden Platt." />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <title>Contact — Jaeden Platt</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="tablet">
+  <div id="sheikah-loader">
+    <div class="loader-core">
+      <div class="sheikah-eye"></div>
+      <p class="boot-text" id="bootText">Initializing...</p>
+    </div>
+  </div>
+  <div class="site" id="site">
+    <header class="site-header" role="banner">
+      <div class="nav-inner">
+        <a class="brand" href="index.html"><div class="brand-badge"></div><span class="brand-name">Jaeden Platt</span></a>
+        <button id="navToggleContact" class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+
+        <nav id="primaryNavContact" class="nav" role="navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <button id="themeToggleContact" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode"><span class="icon">🌙</span></button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="section reveal">
+        <h1 class="section-title">Contact</h1>
+        <p class="section-sub">Send a message about collaboration, freelance work, or questions about projects.</p>
+
+        <div class="contact-grid">
+          <form class="contact-form" action="mailto:jaeden.platt2003@gmail.com" method="post" enctype="text/plain">
+            <label for="c-name">Name</label>
+            <input id="c-name" name="name" type="text" required>
+
+            <label for="c-email">Email</label>
+            <input id="c-email" name="email" type="email" required>
+
+            <label for="c-message">Message</label>
+            <textarea id="c-message" name="message" rows="6" required></textarea>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Send</button>
+              <button class="btn btn-outline" type="reset">Reset</button>
+            </div>
+
+            <p class="muted">Or email directly: <a href="mailto:jaeden.platt2003@gmail.com">jaeden.platt2003@gmail.com</a></p>
+          </form>
+
+          <aside class="contact-aside">
+            <h3>Other links</h3>
+            <ul class="plain-list">
+              <li><strong>GitHub:</strong> <a href="https://github.com/jaedenp2003" target="_blank" rel="noopener">Click Here</a></li>
+              <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jaeden-platt" target="_blank" rel="noopener">Click Here</a></li>
+            </ul>
+
+            <div class="mini-cta">
+              <a class="btn btn-ghost" href="https://github.com/jaedenp2003" target="_blank" rel="noopener">View GitHub</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© Jaeden Platt 2025</p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+  </div>
+</body>
+</html>
