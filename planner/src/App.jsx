@@ -53,7 +53,10 @@ export default function App() {
   return (
     <div className="app">
       <nav className="tab-nav">
-        <span className="brand">Planner</span>
+        <span className="brand">
+          <img src="./triforce.svg" alt="" className="brand-icon" />
+          Planner
+        </span>
         <div className="tabs">
           {TABS.map((t) => (
             <button
