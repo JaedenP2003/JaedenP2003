@@ -633,6 +633,78 @@ textarea:focus {
   resize: vertical;
 }
 
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
+}
+
+.counter-card {
+  background: var(--input-bg);
+  border: 1px solid var(--parchment-line);
+  border-top: 3px solid var(--gold-dim);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.counter-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 6px;
+}
+
+.counter-name {
+  font-weight: 600;
+  color: var(--heading);
+  overflow-wrap: anywhere;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.counter-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-dim);
+  background: linear-gradient(180deg, var(--hyrule-green-light) 0%, var(--hyrule-green) 100%);
+  color: var(--parchment);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.counter-btn:hover:not(:disabled) {
+  background: linear-gradient(180deg, var(--hyrule-green) 0%, var(--hyrule-green-dark) 100%);
+}
+
+.counter-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.counter-value {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--heading);
+  min-width: 2.5ch;
+  text-align: center;
+}
+
+.counter-reset {
+  font-size: 0.65rem;
+}
+
 @media (max-width: 640px) {
   .tab-nav {
     flex-wrap: wrap;
@@ -650,6 +722,10 @@ textarea:focus {
 
   .tabs button {
     text-align: center;
+  }
+
+  .tabs button:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
 
   .content {

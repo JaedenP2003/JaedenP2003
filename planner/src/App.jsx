@@ -2,6 +2,7 @@ import { useState } from 'react'
 import TasksView from './components/TasksView'
 import CalendarView from './components/CalendarView'
 import HabitsView from './components/HabitsView'
+import CountersView from './components/CountersView'
 import GoalsView from './components/GoalsView'
 import { useTheme } from './hooks/useTheme'
 
@@ -9,6 +10,7 @@ const TABS = [
   { id: 'tasks', label: 'Tasks', component: TasksView },
   { id: 'calendar', label: 'Calendar', component: CalendarView },
   { id: 'habits', label: 'Habits', component: HabitsView },
+  { id: 'counters', label: 'Counters', component: CountersView },
   { id: 'goals', label: 'Goals & Notes', component: GoalsView },
 ]
 
