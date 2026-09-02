@@ -637,17 +637,19 @@ textarea:focus {
   .tab-nav {
     flex-wrap: wrap;
     gap: 12px;
+    padding: 14px 16px;
   }
 
   .tabs {
     order: 3;
     flex: 1 1 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 
   .tabs button {
-    flex-shrink: 0;
+    text-align: center;
   }
 
   .content {
