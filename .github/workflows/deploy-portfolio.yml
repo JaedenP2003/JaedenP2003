@@ -1,0 +1,31 @@
+name: Deploy Portfolio
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'planner/**'
+      - '.github/workflows/deploy-planner.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare site contents
+        run: |
+          mkdir -p site
+          shopt -s extglob
+          cp -r !(planner|site|.git|.github) site/
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site
+          keep_files: true
