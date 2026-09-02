@@ -64,38 +64,40 @@ export default function HabitsView() {
       {habits.length === 0 && <p className="empty">No habits yet. Add one to start tracking.</p>}
 
       {habits.length > 0 && (
-        <table className="habit-table">
-          <thead>
-            <tr>
-              <th></th>
-              {dates.map((d) => (
-                <th key={d}>{formatDisplay(d).slice(0, 3)}</th>
-              ))}
-              <th>Streak</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {habits.map((h) => (
-              <tr key={h.id}>
-                <td className="habit-name">{h.name}</td>
+        <div className="table-scroll">
+          <table className="habit-table">
+            <thead>
+              <tr>
+                <th></th>
                 {dates.map((d) => (
-                  <td key={d}>
-                    <button
-                      className={'habit-cell' + (h.completions[d] ? ' checked' : '')}
-                      onClick={() => toggleCompletion(h.id, d)}
-                      aria-label={`Toggle ${h.name} for ${d}`}
-                    />
-                  </td>
+                  <th key={d}>{formatDisplay(d).slice(0, 3)}</th>
                 ))}
-                <td className="streak">{getStreak(h.completions)}🔥</td>
-                <td>
-                  <button className="remove-btn" onClick={() => removeHabit(h.id)} aria-label="Delete habit">&times;</button>
-                </td>
+                <th>Streak</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {habits.map((h) => (
+                <tr key={h.id}>
+                  <td className="habit-name">{h.name}</td>
+                  {dates.map((d) => (
+                    <td key={d}>
+                      <button
+                        className={'habit-cell' + (h.completions[d] ? ' checked' : '')}
+                        onClick={() => toggleCompletion(h.id, d)}
+                        aria-label={`Toggle ${h.name} for ${d}`}
+                      />
+                    </td>
+                  ))}
+                  <td className="streak">{getStreak(h.completions)}🔥</td>
+                  <td>
+                    <button className="remove-btn" onClick={() => removeHabit(h.id)} aria-label="Delete habit">&times;</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   )

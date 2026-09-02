@@ -641,12 +641,40 @@ textarea:focus {
 
   .tabs {
     order: 3;
-    width: 100%;
+    flex: 1 1 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabs button {
+    flex-shrink: 0;
   }
 
   .content {
     margin: 12px;
     padding: 20px 16px 40px;
+  }
+
+  .add-form {
+    flex-wrap: wrap;
+  }
+
+  .add-form input[type='text'] {
+    flex-basis: 100%;
+  }
+
+  .add-form input[type='time'] {
+    flex: 1;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+
+  .habit-table {
+    min-width: 480px;
   }
 }
