@@ -3,6 +3,7 @@ import TasksView from './components/TasksView'
 import CalendarView from './components/CalendarView'
 import HabitsView from './components/HabitsView'
 import GoalsView from './components/GoalsView'
+import { useTheme } from './hooks/useTheme'
 
 const TABS = [
   { id: 'tasks', label: 'Tasks', component: TasksView },
@@ -48,6 +49,7 @@ function importData(file, onDone) {
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('tasks')
+  const [theme, toggleTheme] = useTheme()
   const Active = TABS.find((t) => t.id === activeTab).component
 
   return (
@@ -69,6 +71,14 @@ export default function App() {
           ))}
         </div>
         <div className="data-actions">
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to Light World' : 'Switch to Twilight Realm'}
+            title={theme === 'dark' ? 'Light World' : 'Twilight Realm'}
+          >
+            {theme === 'dark' ? '☀' : '☾'}
+          </button>
           <button className="link-btn" onClick={exportData}>Export</button>
           <label className="link-btn import-label">
             Import

@@ -7,6 +7,7 @@
   --parchment: #ecdfb9;
   --parchment-dark: #ddccA0;
   --parchment-line: #c9b585;
+  --input-bg: #fbf6e8;
   --ink: #2e2412;
   --ink-soft: #5a4c33;
   --gold: #c9a227;
@@ -18,8 +19,40 @@
   --hyrule-green-light: #5c7d4f;
   --zora-blue: #3a6ea5;
   --danger: #8a2f22;
+  --ambient-glow: #2a2013;
+  --texture-blend: multiply;
+  --texture-opacity: 0.5;
+  --heading: var(--wood);
+  --subheading: var(--hyrule-green-dark);
+  --nav-muted: #ddccA0;
   --radius: 4px;
   color-scheme: light;
+}
+
+/* Twilight Realm: the same carved-wood frame, but the parchment gives way
+   to dark, moonlit stone touched with shadow-purple. */
+[data-theme='dark'] {
+  --parchment: #241c30;
+  --parchment-dark: #362a4a;
+  --parchment-line: #4a3a68;
+  --input-bg: #2c2340;
+  --ink: #e7ddc8;
+  --ink-soft: #b3a4cf;
+  --gold: #b3903a;
+  --gold-bright: #ddb85f;
+  --gold-dim: #6b5522;
+  --bronze: #8a6d3e;
+  --hyrule-green: #3a5648;
+  --hyrule-green-dark: #253a30;
+  --hyrule-green-light: #4f7060;
+  --zora-blue: #6f93c2;
+  --danger: #b3543f;
+  --ambient-glow: #241a35;
+  --texture-blend: overlay;
+  --texture-opacity: 0.35;
+  --heading: var(--gold-bright);
+  --subheading: var(--hyrule-green-light);
+  color-scheme: dark;
 }
 
 * {
@@ -31,8 +64,9 @@ body {
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   font-size: 17px;
   background:
-    radial-gradient(ellipse at top, #2a2013 0%, var(--wood-deepest) 70%);
+    radial-gradient(ellipse at top, var(--ambient-glow) 0%, var(--wood-deepest) 70%);
   color: var(--ink);
+  transition: background 0.3s ease;
 }
 
 h1,
@@ -98,7 +132,7 @@ h3,
   background: transparent;
   padding: 7px 16px;
   border-radius: var(--radius);
-  color: var(--parchment-dark);
+  color: var(--nav-muted);
   font-family: 'Cinzel', Georgia, serif;
   font-size: 0.78rem;
   letter-spacing: 0.05em;
@@ -129,7 +163,7 @@ h3,
 .link-btn {
   border: none;
   background: none;
-  color: var(--parchment-dark);
+  color: var(--nav-muted);
   font-family: 'Cinzel', Georgia, serif;
   font-size: 0.72rem;
   letter-spacing: 0.05em;
@@ -157,6 +191,26 @@ h3,
   cursor: pointer;
 }
 
+.theme-toggle {
+  border: 1px solid var(--gold-dim);
+  background: transparent;
+  color: var(--gold-bright);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background: rgba(201, 162, 39, 0.15);
+  border-color: var(--gold-bright);
+}
+
 /* --- Content: a parchment scroll laid over dark wood --- */
 
 .content {
@@ -175,6 +229,26 @@ h3,
     0 0 0 8px var(--gold-dim),
     0 12px 30px rgba(0, 0, 0, 0.55);
   position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+/* Paper-grain texture: fractal noise generated inline, no image assets. */
+.content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: var(--texture-blend);
+  opacity: var(--texture-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.content > .view {
+  position: relative;
+  z-index: 1;
 }
 
 .app-footer {
@@ -182,7 +256,7 @@ h3,
   font-family: 'Cinzel', Georgia, serif;
   font-size: 0.7rem;
   letter-spacing: 0.04em;
-  color: var(--parchment-dark);
+  color: var(--nav-muted);
   padding: 18px;
 }
 
@@ -199,7 +273,7 @@ h3,
   font-size: 1.7rem;
   margin: 0;
   letter-spacing: 0.02em;
-  color: var(--wood);
+  color: var(--heading);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -207,7 +281,7 @@ h2 {
   font-family: 'Cinzel', Georgia, serif;
   font-size: 1rem;
   letter-spacing: 0.03em;
-  color: var(--hyrule-green-dark);
+  color: var(--subheading);
   margin: 0 0 10px;
 }
 
@@ -246,8 +320,18 @@ h2 {
   font-family: 'Cinzel', Georgia, serif;
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--wood);
+  color: var(--heading);
   min-width: 170px;
+}
+
+.date-nav .link-btn {
+  color: var(--ink-soft);
+  border-bottom-color: var(--parchment-line);
+}
+
+.date-nav .link-btn:hover {
+  color: var(--heading);
+  border-bottom-color: var(--gold);
 }
 
 .icon-btn {
@@ -258,7 +342,7 @@ h2 {
   height: 32px;
   cursor: pointer;
   font-size: 1rem;
-  color: var(--wood);
+  color: var(--heading);
 }
 
 .icon-btn:hover {
@@ -283,7 +367,7 @@ textarea {
   border-radius: var(--radius);
   font-size: 0.98rem;
   font-family: 'EB Garamond', Georgia, serif;
-  background: #fbf6e8;
+  background: var(--input-bg);
   color: var(--ink);
 }
 
@@ -330,7 +414,7 @@ textarea:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #fbf6e8;
+  background: var(--input-bg);
   border: 1px solid var(--parchment-line);
   border-left: 3px solid var(--gold-dim);
   border-radius: var(--radius);
@@ -417,7 +501,7 @@ textarea:focus {
   position: relative;
   aspect-ratio: 1;
   border: 1px solid var(--parchment-line);
-  background: #fbf6e8;
+  background: var(--input-bg);
   border-radius: var(--radius);
   cursor: pointer;
   font-size: 0.85rem;
@@ -474,7 +558,7 @@ textarea:focus {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #fbf6e8;
+  background: var(--input-bg);
   border: 1px solid var(--parchment-line);
   border-left: 3px solid var(--zora-blue);
   border-radius: var(--radius);
@@ -517,7 +601,7 @@ textarea:focus {
 .habit-name {
   text-align: left !important;
   font-weight: 600;
-  color: var(--wood);
+  color: var(--heading);
 }
 
 .habit-cell {
@@ -525,7 +609,7 @@ textarea:focus {
   height: 26px;
   border-radius: var(--radius);
   border: 1px solid var(--parchment-line);
-  background: #fbf6e8;
+  background: var(--input-bg);
   cursor: pointer;
 }
 
