@@ -413,7 +413,7 @@ textarea:focus {
 .task-list li {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
   background: var(--input-bg);
   border: 1px solid var(--parchment-line);
   border-left: 3px solid var(--gold-dim);
@@ -425,7 +425,8 @@ textarea:focus {
   border-left-color: var(--hyrule-green);
 }
 
-.task-list li.done label span {
+.task-list li.done label span,
+.task-list li.done .task-text {
   text-decoration: line-through;
   color: var(--ink-soft);
 }
@@ -435,6 +436,42 @@ textarea:focus {
   align-items: center;
   gap: 10px;
   cursor: pointer;
+}
+
+.task-text {
+  flex: 1;
+  cursor: text;
+}
+
+.task-text:hover {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+.task-edit-input {
+  flex: 1;
+  padding: 4px 8px;
+  font-size: 0.95rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--input-bg);
+  color: var(--ink);
+}
+
+.task-edit-input:focus {
+  outline: none;
+}
+
+.task-move-input {
+  border: 1px solid var(--parchment-line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  padding: 3px 4px;
+  max-width: 128px;
 }
 
 .task-list input[type='checkbox'],
@@ -478,6 +515,15 @@ textarea:focus {
   margin: 0 0 8px;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+.week-columns .task-list li {
+  flex-wrap: wrap;
+}
+
+.week-columns .task-move-input {
+  flex: 1;
+  max-width: none;
 }
 
 .calendar-grid {
